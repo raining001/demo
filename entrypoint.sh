@@ -9,7 +9,7 @@ DIR_TMP="$(mktemp -d)"
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": 443,
+        "port": ${PORT},
         "protocol": "vmess",
         "settings": {
             "clients": [{
@@ -29,6 +29,8 @@ cat << EOF > ${DIR_TMP}/heroku.json
     }]
 }
 EOF
+
+echo ${DIR_TMP}/heroku.json
 
 # Get V2Ray executable release
 curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip -o ${DIR_TMP}/v2ray_dist.zip
