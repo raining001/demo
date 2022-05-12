@@ -21,7 +21,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
             "network": "ws",
             "wsSettings": {
                 "path": "${WSPATH}"
-            },
+            }
         }
     }],
     "outbounds": [{
